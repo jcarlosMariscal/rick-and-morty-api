@@ -1,0 +1,44 @@
+.characters {
+  /* background: yellow; */
+  margin: 1rem 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+
+.characters__card {
+  background: #fff;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  box-shadow: rgba(187, 218, 66, 0.16) 0px 3px 6px,
+    rgba(187, 218, 66, 0.23) 0px 3px 6px;
+}
+.characters__card .card__image {
+  width: 100%;
+}
+.characters__card .card__name {
+  font-weight: bold;
+}
+.characters__card .card__info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.characters__card .card--rel {
+  background: #bbda42;
+  padding: 0 0.5rem;
+  margin: 0.5rem 0;
+  color: white;
+  border-radius: 0.25rem;
+  font-weight: 500;
+}
+.characters__card .card__status {
+  /* position: absolute;
+  bottom: 1.9rem;
+  left: 0.5rem; */
+}
+.characters__card .card__gender {
+  /* position: absolute;
+  bottom: 1.9rem;
+  right: 0.5rem; */
+}
