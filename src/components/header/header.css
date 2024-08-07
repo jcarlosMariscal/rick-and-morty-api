@@ -1,5 +1,11 @@
+.header {
+  background: red;
+  display: flex;
+  gap: 1rem;
+}
 .search-form {
-  height: 2rem;
+  height: 2.5rem;
+  width: 20rem;
 }
 .search-input {
   width: 100%;

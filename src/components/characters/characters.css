@@ -1,6 +1,7 @@
 .characters {
   /* background: yellow; */
   margin: 1rem 0;
+  width: 70rem;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
@@ -12,14 +13,23 @@
   padding: 0.5rem;
   box-shadow: rgba(187, 218, 66, 0.16) 0px 3px 6px,
     rgba(187, 218, 66, 0.23) 0px 3px 6px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.characters__card:hover {
+  transform: scale(1.03);
+  transition: all 0.2s ease-in-out;
+  box-shadow: rgba(187, 218, 66, 0.16) 0px 12px 24px,
+    rgba(187, 218, 66, 0.23) 0px 12px 24px;
 }
 .characters__card .card__image {
   width: 100%;
 }
 .characters__card .card__name {
   font-weight: bold;
+  color: #bbda42;
 }
-.characters__card .card__info {
+.characters__card .card__details {
   display: flex;
   justify-content: space-between;
 }
@@ -32,13 +42,21 @@
   border-radius: 0.25rem;
   font-weight: 500;
 }
-.characters__card .card__status {
-  /* position: absolute;
-  bottom: 1.9rem;
-  left: 0.5rem; */
+
+@media screen and (max-width: 1020px) {
+  .characters {
+    grid-template-columns: repeat(4, 1fr);
+    /* gap: 1rem; */
+  }
 }
-.characters__card .card__gender {
-  /* position: absolute;
-  bottom: 1.9rem;
-  right: 0.5rem; */
+@media screen and (max-width: 900px) {
+  .characters {
+    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (max-width: 700px) {
+  .characters {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
