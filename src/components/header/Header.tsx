@@ -1,23 +1,21 @@
-import { ChangeEvent, FC } from "react";
+import { NavLink } from "react-router-dom";
 import "./header.css";
 
-type Props = {
-  searchCharacter: (name: string) => void;
-};
-export const Header: FC<Props> = ({ searchCharacter }) => {
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    searchCharacter(e.target.value);
-  };
+export const Header = () => {
   return (
-    <>
-      <form className="search-form">
-        <input
-          type="search"
-          className="search-input"
-          placeholder="Buscar un personaje"
-          onChange={handleChange}
+    <div className="header">
+      <NavLink to="/">
+        <img
+          src="../src/assets/ram.png"
+          className="header__logo"
+          alt="ram-logo"
         />
-      </form>
-    </>
+      </NavLink>
+      <div className="header__navs">
+        <NavLink to="favorites" className="nav-link">
+          Favoritos
+        </NavLink>
+      </div>
+    </div>
   );
 };

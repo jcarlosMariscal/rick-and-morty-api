@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { Header } from "../components/header/Header";
 import { Characters } from "../components/characters/Characters";
 import ICharacter from "../interfaces/characters.interface";
+import { Search } from "../components/search/Search";
 
-export const Home = () => {
+export const CharactersPage = () => {
   const [characters, setCharacters] = useState<ICharacter[]>([]);
   const [allCharacters, setAllCharacters] = useState<ICharacter[]>([]);
   const [page, setPage] = useState<number>(1);
@@ -68,8 +68,8 @@ export const Home = () => {
   };
 
   return (
-    <div className="home">
-      <Header searchCharacter={searchCharacter} />
+    <div className="characters-page">
+      <Search searchCharacter={searchCharacter} />
       <Characters characters={characters} />
       {loading && <p>Cargando...</p>}
       <div id="last-item" />

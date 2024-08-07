@@ -1,17 +1,11 @@
-.container {
-  background: white;
-  margin: 0;
-  padding: 0;
-  width: 30rem;
-  margin: 7rem 0;
-  height: auto;
-  border-radius: 0.5rem;
-  position: relative;
-}
 .character {
-  padding: 1rem;
+  padding: 0 1rem;
   gap: 1.5rem;
   height: 100%;
+  background: white;
+  border-radius: 0.5rem;
+  width: 25rem;
+  height: 22rem;
 }
 .character__image {
   text-align: center;
@@ -33,9 +27,6 @@
 .header__actions {
   display: flex;
 }
-.svg-home {
-  width: 1.5rem;
-}
 .btn-favorite {
   background: transparent;
   outline: none;
@@ -43,29 +34,9 @@
 }
 .svg-star {
   width: 1.5rem;
+  cursor: pointer;
+}
+.svg-star:hover {
+  fill: #333;
 }
 
-.content__characteristics {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-.characteristic {
-  padding: 0.2rem 0.5rem;
-  color: #ffffff;
-  font-weight: bold;
-  border-radius: 0.5rem;
-  font-size: 0.9rem;
-}
-.characteristic--primary {
-  background: #44281d;
-}
-.characteristic--secondary {
-  background: #f0e14a;
-}
-.characteristic--tertiary {
-  background: #97ce4c;
-}
-.characteristic--quaternary {
-  background: #e89ac7;
-}
