@@ -2,15 +2,11 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  /* color-scheme: light dark; */
-  /* color: rgba(255, 255, 255, 0.87); */
-  /* background-color: #242424; */
-
-  /* font-synthesis: none; */
-  /* text-rendering: optimizeLegibility; */
-  /* -webkit-font-smoothing: antialiased; */
-  /* -moz-osx-font-smoothing: grayscale; */
+  --border-radius: 0.5rem;
+  --shadow-bg1: rgba(187, 218, 66, 0.16);
+  --shadow-bg2: rgba(187, 218, 66, 0.23);
+  --color-white: #ffffff;
+  --color-dark: #222222;
 }
 * {
   box-sizing: border-box;
@@ -26,7 +22,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background: aqua; */
 }
 .characters-page {
   width: 90vw;
@@ -35,7 +30,6 @@ body {
   align-items: center;
 }
 .favorites-page {
-  /* background: pink; */
   width: 90vw;
   display: flex;
   flex-direction: row;

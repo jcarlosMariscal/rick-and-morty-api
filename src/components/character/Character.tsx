@@ -29,11 +29,9 @@ export const Character: FC<Props> = ({ character }) => {
               onClick={() => addFavorite(character!)}
             >
               <svg
-                className="feather feather-star svg-star"
+                className="svg-star"
                 fill="none"
                 stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
                 strokeWidth="2"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -65,4 +63,3 @@ export const Character: FC<Props> = ({ character }) => {
     </div>
   );
 };
-// 80

@@ -1,8 +1,8 @@
 .characteristic {
   padding: 0.2rem 0.5rem;
-  color: #ffffff;
+  color: var(--color-white);
   font-weight: bold;
-  border-radius: 0.5rem;
+  border-radius: var(--border-radius);
   font-size: 0.9rem;
 }
 .characteristic.primary {

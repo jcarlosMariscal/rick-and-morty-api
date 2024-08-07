@@ -9,14 +9,13 @@
 }
 
 .header__navs .nav-link {
-  color: #333333;
+  color: var(--color-dark);
   font-size: 1.25rem;
   font-weight: bold;
   text-decoration: none;
 }
 .header__navs .nav-link:hover {
-  color: #222;
-  /* text-decoration: underline; */
+  color: #333;
 }
 
 @keyframes logo-anim {

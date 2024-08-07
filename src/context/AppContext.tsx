@@ -12,10 +12,12 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
 
   const addFavorite = (character: ICharacter) => {
     setFavorites((prev) => {
+      // Verificamos si el personaje ya está en favoritos para quitarlo.
       const isFavorite = prev.some((fav) => fav.id === character.id);
       if (isFavorite) {
         return prev.filter((fav) => fav.id !== character.id);
       }
+      // Evitamos que se pueda agregar un personaje dos veces.
       if (prev.some((fav) => fav.id === character.id)) {
         return prev;
       }

@@ -7,7 +7,7 @@
 .btn-paginator {
   width: 2rem;
   height: 2rem;
-  border-radius: 0.5rem;
+  border-radius: var(--border-radius);
   border: none;
   cursor: pointer;
   display: flex;
