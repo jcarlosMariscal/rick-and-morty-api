@@ -1,0 +1,71 @@
+.container {
+  background: white;
+  margin: 0;
+  padding: 0;
+  width: 30rem;
+  margin: 7rem 0;
+  height: auto;
+  border-radius: 0.5rem;
+  position: relative;
+}
+.character {
+  padding: 1rem;
+  gap: 1.5rem;
+  height: 100%;
+}
+.character__image {
+  text-align: center;
+}
+.character__image img {
+  object-fit: cover;
+  width: 30%;
+  border-radius: 50%;
+}
+
+.character__content p {
+  margin: 0.5rem;
+}
+.content__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__actions {
+  display: flex;
+}
+.svg-home {
+  width: 1.5rem;
+}
+.btn-favorite {
+  background: transparent;
+  outline: none;
+  border: none;
+}
+.svg-star {
+  width: 1.5rem;
+}
+
+.content__characteristics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.characteristic {
+  padding: 0.2rem 0.5rem;
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+}
+.characteristic--primary {
+  background: #44281d;
+}
+.characteristic--secondary {
+  background: #f0e14a;
+}
+.characteristic--tertiary {
+  background: #97ce4c;
+}
+.characteristic--quaternary {
+  background: #e89ac7;
+}
