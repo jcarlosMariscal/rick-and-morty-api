@@ -1,0 +1,19 @@
+.characteristic {
+  padding: 0.2rem 0.5rem;
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+}
+.characteristic.primary {
+  background: #44281d;
+}
+.characteristic.secondary {
+  background: #f0e14a;
+}
+.characteristic.tertiary {
+  background: #97ce4c;
+}
+.characteristic.quaternary {
+  background: #e89ac7;
+}

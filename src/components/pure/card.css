@@ -1,0 +1,24 @@
+.card {
+  background: #fff;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  box-shadow: rgba(187, 218, 66, 0.16) 0px 3px 6px,
+    rgba(187, 218, 66, 0.23) 0px 3px 6px;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  gap: 0.5rem;
+}
+.card:hover {
+  transform: scale(1.03);
+  transition: all 0.2s ease-in-out;
+  box-shadow: rgba(187, 218, 66, 0.16) 0px 6px 12px,
+    rgba(187, 218, 66, 0.23) 0px 6px 12px;
+}
+.card__image img {
+  width: 8rem;
+}
+.content__name {
+  margin-top: 0;
+  color: #333;
+}
