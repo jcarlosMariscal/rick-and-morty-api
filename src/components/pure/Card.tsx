@@ -13,7 +13,7 @@ export const Card: FC<Props> = ({ character }) => {
   return (
     <NavLink to={`/character/${id}`} className="card">
       <div className="card__image">
-        <img src={image} alt="" />
+        <img src={image} alt={name} />
       </div>
       <div className="card__content">
         <h4 className="content__name">{name}</h4>

@@ -1,66 +1,41 @@
 import { useEffect, useState } from "react";
-import { Characters } from "../components/characters/Characters";
 import ICharacter from "../interfaces/characters.interface";
 import { Search } from "../components/search/Search";
+import { Spinner } from "../components/pure/Spinner";
+import { Pagination } from "../components/pure/Pagination";
+import { Characters } from "../components/pure/Characters";
 
 export const CharactersPage = () => {
   const [characters, setCharacters] = useState<ICharacter[]>([]);
   const [allCharacters, setAllCharacters] = useState<ICharacter[]>([]);
   const [page, setPage] = useState<number>(1);
-  const [hasMore, setHasMore] = useState<boolean>(true);
-  const [loading, setLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [totalPages, setTotalPages] = useState<number>(1);
 
   const fetchAPI = async (page: number) => {
-    setLoading(true);
+    setIsLoading(true);
     try {
       const res = await fetch(`${import.meta.env.VITE_ENDPOINT}?page=${page}`);
       const data = await res.json();
-
-      if (data.results.length === 0) {
-        setHasMore(false);
-      } else {
-        setCharacters((prevCharacters) => [...prevCharacters, ...data.results]);
-        setAllCharacters((prevCharacters) => [
-          ...prevCharacters,
-          ...data.results,
-        ]);
-      }
+      setTotalPages(data.info.pages);
+      setCharacters(data.results);
+      setAllCharacters(data.results);
     } catch (error) {
       console.error("Error al obtener datos");
     }
-    setLoading(false);
-  };
-  const loadMoreItems = () => {
-    if (hasMore && !loading) setPage((prevPage) => prevPage + 1);
+    setIsLoading(false);
   };
 
   useEffect(() => {
     fetchAPI(page);
   }, [page]);
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) loadMoreItems();
-      },
-      { threshold: 1.0 }
-    );
-
-    const lastItem = document.querySelector("#last-item");
-    if (lastItem) observer.observe(lastItem);
-
-    return () => {
-      if (lastItem) observer.unobserve(lastItem);
-    };
-  }, [loading, hasMore]);
 
   const searchCharacter = (name: string) => {
-    // setSearchTerm(name);
     if (!name) {
       setCharacters(allCharacters);
     } else {
-      setHasMore(false);
       setCharacters(
-        allCharacters.filter((el) =>
+        characters.filter((el) =>
           el.name.toLowerCase().includes(name.toLowerCase())
         )
       );
@@ -70,9 +45,12 @@ export const CharactersPage = () => {
   return (
     <div className="characters-page">
       <Search searchCharacter={searchCharacter} />
-      <Characters characters={characters} />
-      {loading && <p>Cargando...</p>}
-      <div id="last-item" />
+      {isLoading ? <Spinner /> : <Characters characters={characters} />}
+      <Pagination
+        currentPage={page}
+        totalPages={totalPages}
+        onPageChange={setPage}
+      />
     </div>
   );
 };

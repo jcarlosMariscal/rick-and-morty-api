@@ -12,6 +12,10 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
 
   const addFavorite = (character: ICharacter) => {
     setFavorites((prev) => {
+      const isFavorite = prev.some((fav) => fav.id === character.id);
+      if (isFavorite) {
+        return prev.filter((fav) => fav.id !== character.id);
+      }
       if (prev.some((fav) => fav.id === character.id)) {
         return prev;
       }

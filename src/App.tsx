@@ -6,7 +6,9 @@ export const App = () => {
   return (
     <AppProvider>
       <Header />
-      <Outlet />
+      <main className="main">
+        <Outlet />
+      </main>
     </AppProvider>
   );
 };

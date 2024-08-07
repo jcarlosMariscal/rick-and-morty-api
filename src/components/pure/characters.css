@@ -1,0 +1,26 @@
+.characters {
+  margin: 1rem 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+.no-data {
+  margin: 1rem 0;
+  color: #333;
+}
+
+@media screen and (max-width: 1120px) {
+  .characters {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (max-width: 950px) {
+  .characters {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 550px) {
+  .characters {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

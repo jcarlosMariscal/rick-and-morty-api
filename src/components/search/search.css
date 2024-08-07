@@ -1,6 +1,6 @@
 .search-form {
   height: 2.5rem;
-  width: 20rem;
+  width: 25rem;
 }
 .search-input {
   width: 100%;
@@ -9,4 +9,10 @@
   border-radius: 0.25rem;
   outline: none;
   border: 1px solid #ccc;
+}
+
+@media screen and (max-width: 550px) {
+  .search-form {
+    width: 80vw;
+  }
 }

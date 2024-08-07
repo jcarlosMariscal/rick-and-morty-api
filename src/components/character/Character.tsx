@@ -1,4 +1,4 @@
-import { FC, useContext } from "react";
+import { FC, useContext, useEffect, useState } from "react";
 import "./character.css";
 import { AppContext } from "../../context/AppContext";
 import { Characteristic } from "../pure/Characteristic";
@@ -8,7 +8,13 @@ type Props = {
   character: ICharacter;
 };
 export const Character: FC<Props> = ({ character }) => {
-  const { addFavorite } = useContext(AppContext);
+  const { addFavorite, favorites } = useContext(AppContext);
+  const [isFavorite, setIsFavorite] = useState<boolean>(
+    favorites.some((fav) => fav.id === character?.id)
+  );
+  useEffect(() => {
+    setIsFavorite(favorites.some((fav) => fav.id === character?.id));
+  }, [favorites]);
 
   return (
     <div className="character">
@@ -19,7 +25,7 @@ export const Character: FC<Props> = ({ character }) => {
           </div>
           <div className="header__actions">
             <button
-              className="btn-favorite"
+              className={`btn-favorite ${isFavorite ? "selected" : ""}`}
               onClick={() => addFavorite(character!)}
             >
               <svg

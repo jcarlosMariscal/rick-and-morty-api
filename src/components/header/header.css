@@ -5,19 +5,18 @@
 }
 .header__logo {
   width: 18rem;
-  transform: translateY(-25px);
   animation: logo-anim 2s infinite alternate;
 }
 
 .header__navs .nav-link {
   color: #333333;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: bold;
   text-decoration: none;
 }
 .header__navs .nav-link:hover {
-  color: #79fb4c;
-  text-decoration: underline;
+  color: #222;
+  /* text-decoration: underline; */
 }
 
 @keyframes logo-anim {
