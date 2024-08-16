@@ -9,7 +9,7 @@ type Props = {
 export const Characters: FC<Props> = ({ characters }) => {
   return (
     <>
-      {characters.length ? (
+      {characters ? (
         <div className="characters">
           {characters.map((character, index) => (
             <Card key={index} character={character} />

@@ -4,31 +4,20 @@ import { Search } from "../components/search/Search";
 import { Spinner } from "../components/pure/Spinner";
 import { Pagination } from "../components/pure/Pagination";
 import { Characters } from "../components/pure/Characters";
+import useFetch from "../hooks/useFetch";
+import { ErrorHandling } from "../components/pure/ErrorHandling";
 
 export const CharactersPage = () => {
   const [characters, setCharacters] = useState<ICharacter[]>([]);
   const [allCharacters, setAllCharacters] = useState<ICharacter[]>([]);
-  const [page, setPage] = useState<number>(1);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [totalPages, setTotalPages] = useState<number>(1);
 
-  const fetchAPI = async (page: number) => {
-    setIsLoading(true);
-    try {
-      const res = await fetch(`${import.meta.env.VITE_ENDPOINT}?page=${page}`);
-      const data = await res.json();
-      setTotalPages(data.info.pages);
-      setCharacters(data.results);
-      setAllCharacters(data.results);
-    } catch (error) {
-      console.error("Error al obtener datos");
-    }
-    setIsLoading(false);
-  };
+  const [page, setPage] = useState<number>(1);
+  const { data, loading, error, totalPages } = useFetch("character", page);
 
   useEffect(() => {
-    fetchAPI(page);
-  }, [page]);
+    setAllCharacters(data as ICharacter[]);
+    setCharacters(data as ICharacter[]);
+  }, [data]);
 
   const searchCharacter = (name: string) => {
     if (!name) {
@@ -42,13 +31,18 @@ export const CharactersPage = () => {
     }
   };
 
+  if (error) return <ErrorHandling code={error.code} />;
   return (
     <div className="characters-page">
       <Search searchCharacter={searchCharacter} />
-      {isLoading ? <Spinner /> : <Characters characters={characters} />}
+      {loading ? (
+        <Spinner />
+      ) : (
+        <Characters characters={characters as ICharacter[]} />
+      )}
       <Pagination
         currentPage={page}
-        totalPages={totalPages}
+        totalPages={totalPages as number}
         onPageChange={setPage}
       />
     </div>

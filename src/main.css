@@ -41,3 +41,11 @@ body {
   flex-wrap: wrap;
   gap: 0.5rem;
 }
+.error-message {
+  width: 100%;
+  background: rgb(192, 190, 190);
+  color: red;
+  font-weight: bolder;
+  text-align: center;
+  padding: 0.5rem;
+}
